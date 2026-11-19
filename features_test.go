@@ -14,7 +14,7 @@ import (
 
 func TestTagHookKeepsTheRestOfSettings(t *testing.T) {
 	original := []byte(`{"model":"opus","hooks":{"UserPromptSubmit":[{"hooks":[{"type":"command","command":"echo outro"}]}],"Stop":[{"hooks":[{"type":"command","command":"x"}]}]}}`)
-	exe := `C:\Users\Lucas\OneDrive - Assist Cloud\it's\claude-sync.exe`
+	exe := `C:\Users\Fulano\OneDrive - Minha Empresa\it's\claude-sync.exe`
 	with, err := withTagHook(original, tagHook(exe))
 	if err != nil {
 		t.Fatal(err)

@@ -505,7 +505,7 @@ func TestWebGuard(t *testing.T) {
 }
 
 func TestEncodeMatchesClaudeCode(t *testing.T) {
-	got := encodeProjectDir(`c:\Users\LucasAmaral\OneDrive - Assist Cloud\Documentos\bergatrix`)
+	got := encodeProjectDir(`c:\Users\Fulano\OneDrive - Minha Empresa\Documentos\projeto`)
 	if got != "c--Users-Fulano-OneDrive---Minha-Empresa-Documentos-projeto" {
 		t.Fatal(got)
 	}
