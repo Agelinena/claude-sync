@@ -1,0 +1,3 @@
+# Executáveis gerados pelo build.sh (vão para as releases)
+/dist/
+*.exe~
