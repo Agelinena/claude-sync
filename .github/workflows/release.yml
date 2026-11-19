@@ -19,8 +19,13 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
+      # O build.sh roda os testes, que no Linux precisam de um chaveiro.
       - name: Compilar
-        run: GO=go VERSION="${GITHUB_REF_NAME#v}" ./build.sh
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libsecret-tools gnome-keyring dbus-x11
+          export VERSION="${GITHUB_REF_NAME#v}"
+          dbus-run-session -- sh -c 'echo -n teste | gnome-keyring-daemon --unlock --components=secrets >/dev/null && GO=go ./build.sh'
       - name: Publicar
         env:
           GH_TOKEN: ${{ github.token }}
